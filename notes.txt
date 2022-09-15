@@ -1,0 +1,34 @@
+django-admin startproject <project name> .
+
+admin panel install or create project / start project and "." for starting
+project in current directory
+
+python manage.py makemigrations // use it initially to make a sqlite3 database
+and later on excutes all database queries using migrate.py
+
+python manage.py runserver
+
+python manage.py createsuperuser
+
+superusername = "NarotsitK"
+superpassword = "NarotsitK@2001"  
+
+nonsuperuser = 'General_User'
+password  = "@@hello1234@@"
+
+
+python manage.py startapp <app_name>   // model view template cannot be used until app is created
+
+-> Then register our apps in the Django settings.py INSTALLED_APPS
+
+--> settings.py Templates [
+{
+	"DIRS": ['templates'] # to render templates
+}]
+
+Models -> Views -> Template ( create urls by registering views.py functions)
+
+
+create function in views.py to render a template
+
+create file name urls.py in home folder
