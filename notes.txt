@@ -32,3 +32,65 @@ Models -> Views -> Template ( create urls by registering views.py functions)
 create function in views.py to render a template
 
 create file name urls.py in home folder
+
+to link css 
+	add STATICFILES_DIRS = [ BASE_DIR / "static"]
+	to settings.py 
+
+// GIT
+
+//first time git setup
+	git config --global user.name "user name"
+	git config --global user.email "email@.com"
+
+//working in remote repository or in cloned repository:
+	git remote -v // for remote information of the github
+	git branch -a // to view all the branches in the remote repository
+
+	//commit changes in remote repository
+	git diff // to see changes
+	git status
+	git add <filename>
+
+	git pull origin master //others coders might be pushing changes into the codes before we pushed so this is used to pull see if there has been any changes in the code
+	git push origin master
+	// push <origin is our remote repostory> <master is the branch>
+
+//branching <common workflow>
+ if we are adding new features to our code the it is not suitable to work in master branch thus we need to create new branch
+ git branch <branch-name> //to create new branch
+ git branch // lists branch
+ * master "* denotes current branch"
+ main 
+ $ git checkout <branch-name> // to go to that specific branchname
+// after adding some features to our code we need to push it to the remote repository from our local repository
+$ git push -u origin <branch-name> "-u is to denote that we want to associate local branch with remote branch so we donot need to add git push origin <branch-name> or git pull origin <branch-name> but write only git push and git pull"
+
+$git branch -a // this will now show a new branch
+
+// to merge the branch with the master done  after unit testing of the code in branch other than master branch
+
+$ git checkout master
+
+$ git pull origin master // to see any changes made in master branch
+
+$ git branch --merged // to list branches merged with the current branch
+
+$ git merge <branch-name> // to merge the branch
+
+$ git push -u origin master // push changes made in our branches
+
+$ git branch -d <branch-name>  // to delete merged branch since it will not be needed but only deltes it on the local repository we do them
+% git push origin --delete <branch-name> // to push the deleted branch changes to the remote repository
+
+
+// for fixing errors in gits
+	--> // for mistaken commit
+	$ git commit --amend -m "New Commit Message"
+//comand for git initialization
+$ git init
+$ git add filename
+$ git commit -m "message"
+$ git branch -M main
+$ git remote add origin <url>
+$ git push -u origin main
