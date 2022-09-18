@@ -36,6 +36,10 @@ create file name urls.py in home folder
 to link css 
 	add STATICFILES_DIRS = [ BASE_DIR / "static"]
 	to settings.py 
+then add header and 
+
+// Working on models
+
 
 // GIT
 
