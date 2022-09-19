@@ -1,16 +1,31 @@
 from django.shortcuts import render
 # Create your views here.
 from .models import *
+def index_base():
+	views = {}
+	views['feedbacks'] = FeedBack.objects.all()
+	views['Services'] = Service.objects.all()
+	return views
+
+
+def price_plan_base():
+	views = {}
+	price_plans = Price_Plan.objects.all()
+	for p in price_plans:
+		views[p.plan_name] = p.price
+	return views
+
+
+
+
 def home(request): #request is
-
-	if request.method == 'GET':
-
-
-	return render(request,'index.html')
+	views = index_base()
+	return render(request,'index.html',views)
 
 
 def about(request):
-	return render(request,'about.html')
+	views = index_base()
+	return render(request,'about.html',views)
 
 def contact(request):
 	if request.method == "POST":
@@ -32,8 +47,10 @@ def portfolio(request):
 	return render(request,'portfolio.html')
 
 def price(request):
-	return render(request,'price.html')
+	price = price_plan_base()
+	return render(request,'price.html',price)
 
 def services(request):
-	return render(request,'services.html')
+	views = index_base()
+	return render(request,'services.html',views)
 	

@@ -25,3 +25,18 @@ class FeedBack(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class Price_Plan(models.Model):
+	plan_name = models.CharField(max_length = 300)
+	price = models.FloatField()
+
+	def __str__(self):
+		return self.plan_name
+
+class Service(models.Model):
+	name = models.CharField(max_length = 400)
+	icon = models.CharField(max_length = 100)
+	description = models.TextField()
+
+	def __str__(self):
+		return self.name
