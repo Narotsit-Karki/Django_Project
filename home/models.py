@@ -40,3 +40,17 @@ class Service(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class Blog(models.Model):
+	name = models.CharField(max_length = 200)
+	date_posted = models.DateField()
+	likes = models.IntegerField()
+	comments = models.IntegerField()
+	title = models.TextField()
+	description = models.TextField()
+	profile_pic = models.TextField(default = 'img/default.png')
+	header_image = models.TextField(default = 'None')
+
+	def __str__(self):
+		return f"< {self.name} : {self.date_posted} >"
+

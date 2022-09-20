@@ -5,6 +5,7 @@ def index_base():
 	views = {}
 	views['feedbacks'] = FeedBack.objects.all()
 	views['Services'] = Service.objects.all()
+	views['Blogs'] = Blog.objects.all()
 	return views
 
 
