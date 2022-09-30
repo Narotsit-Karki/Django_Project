@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- banner start -->
+	<section class="relative about-banner">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Login Page			
+							</h1>	
+							<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span><a href="login">Login Page </a> </span> 
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- banner end -->
+			  {% for message in messages %}
+			<div class="alert {{ message.tags }} alert-dismissible" role="alert">
+    		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        	<span aria-hidden="true">&times;</span>
+    	</button>
+    	{{ message | safe }}
+		</div>
+		{% endfor %}
+			<!-- login form start -->
+<div class = 'frm'>
+	<div class="col-lg-8 col-md-8">
+								<h3 class="mb-30" style="padding:3%;">Welcome Back</h3>
+
+								<form action="login-valid" method = "POST">
+									{% csrf_token %}
+									<div class="mt-10">
+										<input type="email" name="u_email" placeholder="Email  Address" onfocus="this.placeholder = 'Email Address'" onblur="this.placeholder = 'Email Address" required class="single-input" required>
+									</div>
+									<div class="mt-10">
+										<input type="password" name="u_password" placeholder="Password" onfocus="this.placeholder = 'Password'" onblur="this.placeholder = 'Password'" required class="single-input" required>
+									</div>
+									<div class="mt-10">
+										
+									<button type = "submit" class="genric-btn primary-border circle arrow">Login<span class="lnr lnr-arrow-right"></span></a>
+								</div>
+								</div>
+								</form>
+							</div>
+						</div>
+						<!-- login form end -->
+						<style type="text/css">
+							.frm{
+				
+								border-radius: 10px;
+								margin: 3%;
+								padding: 3%;
+								position: relative;
+								left: 30%;
+								width: 40%;
+								box-shadow: 7px 7px 2px lightblue;
+							}
+						</style>
+{% endblock %}

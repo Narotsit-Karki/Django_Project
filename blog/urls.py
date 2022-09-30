@@ -1,3 +1,4 @@
+import os
 """blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,10 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-
+#files necessary for MEDIA Url 
+from django.conf import settings
+from django.conf.urls.static import static
 # initial app is always a default app 
 # registering import
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('home.urls'))
 ]
+
+# creating image url
+if settings.DEBUG: 
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

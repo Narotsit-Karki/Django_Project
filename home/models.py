@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your mode
 # make migrations after every update
 	# python manage.py make migrations
@@ -21,7 +21,7 @@ class FeedBack(models.Model):
 	name = models.CharField(max_length = 400)
 	post = models.CharField(max_length = 500)
 	comment = models.TextField()
-	image = models.TextField()
+	image = models.ImageField()
 
 	def __str__(self):
 		return self.name
@@ -41,16 +41,50 @@ class Service(models.Model):
 	def __str__(self):
 		return self.name
 
-class Blog(models.Model):
-	name = models.CharField(max_length = 200)
-	date_posted = models.DateField()
-	likes = models.IntegerField()
-	comments = models.IntegerField()
-	title = models.TextField()
-	description = models.TextField()
-	profile_pic = models.TextField(default = 'img/default.png')
-	header_image = models.TextField(default = 'None')
+class User(models.Model):
+	fname = models.CharField(max_length = 400)
+	lname = models.CharField(max_length = 400)
+	slug = models.CharField(max_length = 80,unique = True)
+	email = models.EmailField(unique = True, max_length = 600)
+	password = models.CharField(max_length = 15)
+	profile_pic = models.ImageField(default = 'img/default.png',blank = True)
 
 	def __str__(self):
-		return f"< {self.name} : {self.date_posted} >"
+		return f"< {self.email} >"
+
+
+class Comment(models.Model):
+	slug = models.CharField(max_length = 40,unique = True)
+	comment_text = models.TextField()
+	comment_user = models.ForeignKey(User,on_delete = models.CASCADE)
+	date_posted = models.DateField()
+	likes = models.IntegerField()
+
+
+	def __str__(self):
+		return f"< {self.comment_user} : {self.date_posted} >"
+
+
+class Post_Categories(models.Model):
+	slug = models.CharField(unique = True,max_length = 40)
+	name = models.CharField(max_length = 400)
+	blogs = models.ManyToManyField('Blog')
+
+	def __str__(self):
+		return f" < {self.name} >"
+
+class Blog(models.Model):
+	slug = models.CharField(max_length = 50,unique = True)
+	date_posted = models.DateField()
+	likes = models.IntegerField()
+	title = models.TextField()
+	content = RichTextField(blank=True,null=True)
+	header_image = models.ImageField()
+	blog_user = models.ForeignKey(User,on_delete = models.CASCADE)
+	comments = models.ForeignKey(Comment,on_delete = models.CASCADE,blank = True , null = True)
+	category = models.ManyToManyField(Post_Categories)
+	def __str__(self):
+		return f"< {self.title} : {self.date_posted} >"
+
+
 
