@@ -29,14 +29,13 @@
 		<div class="col-lg-8 col-md-8">
 								<h3 class="mb-30" style="padding:3%;">Join Us</h3>
 
-								<form action="signup-valid" method = "POST">
+								<form  method = "POST">
 									{% csrf_token %}
 									<div class="mt-10">
-										<input type="text" name="fname" placeholder="First Name" onfocus="this.placeholder = 'First Name'" onblur="this.placeholder = 'First Name'" required class="single-input" required>
+										<input type="text" name="uname" placeholder="User Name" onfocus="this.placeholder = 'User Name'" onblur="this.placeholder = 'User Name'" required class="single-input" required>
+
 									</div>
-									<div class="mt-10">
-										<input type="text" name="lname" placeholder="Last Name" onfocus="this.placeholder = 'Lirst Name'" onblur="this.placeholder = 'Lirst Name'" required class="single-input" required>
-									</div>
+									
 									<div class="mt-10">
 										<input type="email" name="email" placeholder="Email  Address" onfocus="this.placeholder = 'Email Address'" onblur="this.placeholder = 'Email Address" required class="single-input" required>
 									</div>
@@ -44,7 +43,7 @@
 										<input type="password" name="password" placeholder="Password" onfocus="this.placeholder = 'Password'" onblur="this.placeholder = 'Password'" required class="single-input" required>
 									</div>
 									<div class="mt-10">
-										<input type="password" name="confirmpassword" placeholder="Confirm Password" onfocus="this.placeholder = 'Confirm Password'" onblur="this.placeholder = 'Confirm Password'" required class="single-input" required>
+										<input type="password" name="c_password" placeholder="Confirm Password" onfocus="this.placeholder = 'Confirm Password'" onblur="this.placeholder = 'Confirm Password'" required class="single-input" required>
 									</div>
 									<div class="mt-10">
 										

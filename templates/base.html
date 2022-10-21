@@ -15,7 +15,7 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Personal</title>
+		<title>{{Title}}</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -41,21 +41,30 @@
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="/">Home</a></li>
-			          <li> <a href = "/login">Login</a></li>
+			          {% if not user.is_authenticated %}
+			          <li> <a href = "/accounts/login">Login</a></li>
 			          <li><a href="/signup">SignUp</a></li>
+			          {% else %}
+			           <li class="menu-has-children"><a href="">{{user.username}}</a>
+			            <ul>
+			            	<li><a href="/profile">Profile</a></li>
+			              <li><a href="/accounts/logout">Logout</a></li>
+			            </ul>
+			          </li>
+			          {% endif %}
 			          <li><a href="/about">About</a></li>
 			          <li><a href="/services">Services</a></li>
 			          <li><a href="/portfolio">Portfolio</a></li>
 			          <li><a href="/price">Pricing</a></li>
 			          <li class="menu-has-children"><a href="">Blog</a>
 			            <ul>
-			              <li><a href="/blog-home">Blog Home</a></li>
-			              <li><a href="/blog-single">Blog Single</a></li>
+			              <li><a href="{% url 'blog-home' %}">Blog Home</a></li>
+			              <li><a href="{% url 'blog-single' Popular_Single_Blog.slug %}">Blog Single</a></li>
 			            </ul>
 			          </li>	
 			          <li class="menu-has-children"><a href="">Pages</a>
 			            <ul>
-		            	  <li><a href="/elements">Elements</a></li>
+		            	  <li><a href="/elements">ElBements</a></li>
 				          <li class="menu-has-children"><a href="">Level 2 </a>
 				            <ul>
 				              <li><a href="#">Item One</a></li>

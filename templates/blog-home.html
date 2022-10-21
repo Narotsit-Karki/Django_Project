@@ -106,9 +106,11 @@
 										{% endfor %}			
 									<div class="user-details row">
 										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{blog.blog_user.fname}} {{blog.blog_user.lname}}</a> <span class="lnr lnr-user"></span></p>
+
 										<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{blog.date_posted}}</a> <span class="lnr lnr-calendar-full"></span></p>
 										<p class="view col-lg-12 col-md-12 col-6"><a href="#"> {{blog.likes}}</a> <span class="lnr lnr-heart"></span></p>
-										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">24</a> <span class="lnr lnr-bubble"></span></p>						
+
+										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">24</a> <span class="lnr lnr-bubble"></span></p>
 									</div>
 								</div>
 								<div class="col-lg-9 col-md-9 ">
@@ -201,9 +203,6 @@
 												<a href="blog-single"><h6>{{ pop.title|truncatechars:40 }}</h6>
 												<p>{{pop.date_posted}}</p>
 												</a>
-											
-
-											
 											</div>
 
 										</div>
